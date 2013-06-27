@@ -1,0 +1,42 @@
+This is a test project to test out how autotools work.
+
+==== Build the test system ====
+
+autoreconf -vfi
+
+in a separate directory:
+
+../autoconf_test/configure
+make
+
+
+==== How it was created ====
+
+1. First steps
+
+I've created a simple hello.c and then some
+supplementary files
+
+- AUTHORS
+- ChangeLog
+- NEWS
+- README
+
+that autoconf expects to exist.
+
+Then I made
+
+- Makefile.am
+
+and ran
+
+autoscan
+
+to generate a preliminary configure.scan file.
+
+2. Next steps
+
+mv configure.scan configure.ac
+
+3. Edit configure.ac
+
