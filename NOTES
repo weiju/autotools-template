@@ -1,0 +1,10 @@
+I was able to cross-compile on AROS with
+
+./configure --host=i386-aros CC=$AROS_SDK_HOME/bin/x86_64-aros-gcc
+
+and to 68k Amiga with
+./configure --host=68k-amigaos CC=vc CFLAGS=+aos68k
+
+TODO:
+
+Recognize host and add settings about endianess etc.
