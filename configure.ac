@@ -3,8 +3,11 @@
 
 AC_PREREQ([2.69])
 AC_INIT([hello],[1.0.0],[weiju.wu@gmail.com])
-AM_INIT_AUTOMAKE
+
+AC_CONFIG_AUX_DIR([build-aux])
+AM_INIT_AUTOMAKE([-Wall -Werror])
 AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_SRCDIR([src/hello.c])
 
 # Checks for programs.
 AC_PROG_CC
