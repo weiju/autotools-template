@@ -12,8 +12,8 @@ AC_CONFIG_SRCDIR([src/hello.c])
 # we allow for cross-compilation on AROS and AmigaOS
 AC_CANONICAL_HOST
 case "$host" in
-  m68k-*-amigaos) CC=vc CFLAGS=+aos68k ;;
-  i386-*-aros) CC=$AROS_SDK_HOME/bin/x86_64-aros-gcc ;;
+  m68k-*-amigaos) CC=vc CFLAGS="+aos68k -DWORDS_BIGENDIAN $CFLAGS" ;;
+  i386-*-aros) CC=i386-linux-aros-gcc ;;
 esac
 
 # Checks for programs.

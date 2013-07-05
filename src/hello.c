@@ -6,6 +6,10 @@
 
 int main(int argc, char **argv)
 {
-  printf("hello !\n");
+#ifdef WORDS_BIGENDIAN
+  printf("Hello, Big Endian !\n");
+#else
+  printf("Hello, Little Endian !\n");
+#endif
   return 0;
 }
