@@ -9,17 +9,12 @@ AM_INIT_AUTOMAKE([-Wall -Werror])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([src/hello.c])
 
-# we allow for cross-compilation
+# we allow for cross-compilation on AROS and AmigaOS
 AC_CANONICAL_HOST
-if [test $host_os = 'amigaos' -a $host_cpu = 'm68k']; then
-  echo "We are cross-compiling Amiga stuff !"
-  CC=vc
-  CFLAGS=+aos68k
-fi
-if [test $host_os = 'aros' -a $host_cpu = 'i386']; then
-  echo "We are cross-compiling for AROS !"
-  CC=$AROS_SDK_HOME/bin/x86_64-aros-gcc
-fi
+case "$host" in
+  m68k-*-amigaos) CC=vc CFLAGS=+aos68k ;;
+  i386-*-aros) CC=$AROS_SDK_HOME/bin/x86_64-aros-gcc ;;
+esac
 
 # Checks for programs.
 AC_PROG_CC
